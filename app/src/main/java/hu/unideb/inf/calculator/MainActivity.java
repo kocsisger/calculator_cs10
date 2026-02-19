@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                         calculate(resultTextView.getText().toString())
                       ); break;
             default:
+                if (resultTextView.getText().toString().equals("0"))
+                    resultTextView.setText("");
                 resultTextView.append(button.getText().toString());
         }
     }
@@ -53,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
         String operator = expression.replace(splitExpression[0], "");
         operator = operator.replace(splitExpression[1], "");
 
-        Log.d("TEXT_OP", "Operands:" + op1 + " " + operator + " " + op2);
+        switch (operator){
+            case "+" : return String.valueOf(op1+op2);
+            case "-" : return String.valueOf(op1-op2);
+            case "*" : return String.valueOf(op1*op2);
+            case "/" : return String.valueOf(op1/op2);
+        }
+
+        Log.e("TEST_OP", "Operands:" + op1 + " " + operator + " " + op2);
         return "ERROR";
     }
 }
