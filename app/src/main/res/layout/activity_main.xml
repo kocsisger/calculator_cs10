@@ -92,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="handleButtonPressed"
-                android:text="5"
+                android:text="6"
                 android:textSize="34sp" />
 
             <Button
