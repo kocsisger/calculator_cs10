@@ -2,6 +2,8 @@ package hu.unideb.inf.calculator;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView resultTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +25,17 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        resultTextView = findViewById(R.id.resultTextView);
     }
 
     public void handleButtonPressed(View view) {
+        Button button = (Button)view;
 
+        switch (button.getText().toString()){
+            case "CE" : resultTextView.setText("0"); break;
+            case "="  : break;
+            default   : resultTextView.append(button.getText().toString());
+        }
     }
 }
